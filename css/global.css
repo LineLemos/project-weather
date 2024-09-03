@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Barlow Semi Condensed";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #333;
+    font-size: 40px;
+}
+
+p {
+    color: #70747a;
+    font-size: 19px;
+}
+
+ button, input, textarea, a {
+    border: 0;
+    outline: none;
+}
