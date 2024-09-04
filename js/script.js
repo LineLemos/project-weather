@@ -17,6 +17,7 @@ async function fetchWeather(cidade) {
             alert('Cidade não encontrada!');
             return;
         }
+        console.log(data); // Exibe os dados retornados pela API
 
         document.getElementById('cidade').textContent = data.location.name;
         document.getElementById('estado').textContent = data.location.region;
@@ -31,6 +32,7 @@ async function fetchWeather(cidade) {
         iconElement.src = data.current.condition.icon;
         iconElement.style.display = 'inline';
         iconElement.alt = data.current.condition.text;
+        iconElement.style.width = '100px';
 
     } catch (error) {
         console.error('Erro ao buscar o tempo:', error);
