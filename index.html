@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,14 @@
     <link rel="stylesheet" href="./css/styles.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
+
 <body>
+
+    <div class="container">
     <header>
         <section class="cabeçalho">
             <nav class="navbar">
                 <ul>
-                    <li>
-                        <h1>Escolha a cidade</h1>
-                            <input type="text" name="city" id="city">
-                    </li>
                     <li>
                         <i class="ph ph-info"></i>
                         <a href="#detalhes">details</a>
@@ -26,21 +26,34 @@
                         <a href="#favoritos">favorites</a>
                     </li>
                 </ul>
-        </nav>
+            </nav>
         </section>
     </header>
-    
+
     <main>
+        <div>
+            <input type="text" id="busca-cidade" placeholder="Digite o nome da cidade">
+            <button id="botao-busca">Buscar</button>
+        </div>
+        <h2 id="cidade">Cidade</h2>
+        <div id="icon" class="icon-clima">
+            <i class="ph ph-sun"></i>
+        </div>
         <section class="conteudo">
+            
             <div id="temperatura">
-                <h2>Dia e temperatura</h2>
-
+                <h2>Dia e temperatura</h2>'
+                <img id="icon" src="" alt="Ícone do tempo" style="display: none;">
             </div>
-            <div class="condition">
 
-            </div>
+            <div class="condicao"></div>
+
+            <div class="umidade"></div>
+
         </section>
     </main>
-    
+    </div>
+    <script src="js/script.js"></script>
 </body>
+
 </html>

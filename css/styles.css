@@ -1,0 +1,27 @@
+
+.container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 968px;
+    background-image: linear-gradient(to bottom, #7dd3fc, #0ea5e9);
+}
+
+.navbar {
+    
+    font-style: italic;
+    padding: 30px;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+}
+.icon-clima {
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 250px;
+}
+ 
