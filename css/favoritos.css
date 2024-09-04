@@ -1,0 +1,35 @@
+body{
+    width: 100%;
+    height: 801px;
+}
+
+header{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+main h1{
+padding: 10px;
+}
+
+h1 i{
+    font-size: 24px;
+    padding: 10px;
+}
+
+input{
+    width: 30%;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 8px 5px;
+}
+
+.input{
+    padding: 30px 20px;
+    display: flex;
+}
+
+.save p{
+    padding: 20px;
+}
