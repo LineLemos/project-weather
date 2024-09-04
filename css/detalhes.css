@@ -1,12 +1,11 @@
 .container {
     width: 100%;
     max-width: 968px;
-    height: 710px;
+    height: 780px;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 500px;
-    background-image: linear-gradient(to bottom, #7dd3fc, #0ea5e9);
     /* height: 800px; */
 }
 
