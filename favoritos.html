@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="css/favoritos.css">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="css/favoritos.css" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <title>Favoritos</title>
+  </head>
 
-</head>
-
-<body>
-
-    <header>
-        <a href="index.html" class="back">
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-wrapper">
+          <a href="index.html" class="back">
             <i class="ph ph-caret-left"></i> Voltar
-        </a>
-    </header>
+          </a>
+        </div>
+      </header>
 
-    <main>
-        <div class="page-title">
+      <main>
+        <div class="content-container">
+          <div class="page-title">
             <h1><i class="ph ph-star"></i>Favoritos</h1>
-        </div>
 
-        <div class="input">
-        <input type="text" id="salvar-cidade" placeholder="Digite a cidade que deseja salvar como favorita">
-        </div>
-
-        <div class="save">
             <p>Suas cidades salvas se encontram abaixo</p>
+          </div>
+
+          <div class="input">
+            <input
+              type="text"
+              id="salvar-cidade"
+              placeholder="Digite a cidade que deseja salvar como favorita"
+            />
+            <button id="botao-fav">Salvar</button>
+          </div>
+
+          <div class="cidades-salvas"></div>
         </div>
-    </main>
-
-</body>
-
+      </main>
+    </div>
+    <script src="js/favoritos.js"></script>
+  </body>
 </html>

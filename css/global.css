@@ -1,8 +1,10 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
+
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
 }
 
 h1,
@@ -11,24 +13,31 @@ h3,
 h4,
 h5,
 h6 {
-    color: #333;
+  color: #333;
 }
 
 p {
-    color: #70747a;
+  color: #70747a;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 button,
 input,
 textarea,
 a {
-    border: 0;
-    outline: none;
+  border: 0;
+  outline: none;
 }
-body{
-    background-image: linear-gradient(to bottom, #7dd3fc, #0ea5e9);
+html,
+body,
+.container {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
