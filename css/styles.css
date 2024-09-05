@@ -1,89 +1,93 @@
-html{
-    height: 100%;
-}
-
-
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    width:100%;
-}
+  flex: 1;
+  background-image: linear-gradient(#7dd3fc, #0ea5e9);
 
-.cabeçalho {
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 header {
-    background-color: #326492;
-    color: white;
-    width: 100%;
-    padding: 10px 0;
-    margin-left: 0;
-    margin-bottom: 30px;
+  background-color: #326492;
+  color: white;
+  width: 100%;
+  padding: 16px 32px;
+
+  display: flex;
+  align-items: center;
 }
-.nav-bar{
-    width: 100%;
-    padding-left: 10px;
+
+.nav-bar {
+  width: 100%;
 }
 .nav-bar ul {
-    list-style-type: none;
-   
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 .nav-bar li {
-    display: inline;
-    
+  display: inline;
 }
 
 .nav-bar a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .nav-bar a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 main {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    padding-bottom: 100px;
+  margin-top: 32px;
+  max-width: 1120px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-input[type="text"] {
-    padding: 10px;
-    width: calc(100% - 22px);
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.form-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin-bottom: 16px;
+}
+
+.form-body input[type="text"] {
+  flex: 1;
+  padding: 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #4c90af;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 10px 20px;
+  background-color: #4c90af;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #205375;
+  background-color: #205375;
 }
 
 h2 {
-    color: #333;
+  color: #333;
 }
 
 .conteudo div {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .conteudo {
-    background: linear-gradient(to bottom, #7dd3fc, #eaf6fc);
-    box-shadow: 5px 5px 10px rgba(9, 65, 52, 0.5);
-    font-style: oblique;
-    font-size: 15px;
-    padding: 30px;
-    border-radius: 5px;
+  background-color: #f5f5f5;
+
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  font-size: 15px;
+  padding: 30px;
+  border-radius: 8px;
 }
- 

@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <section class="cabeçalho">
-            <nav class="nav-bar">
-                <ul>
-                    <li>
-                        <i class="ph ph-info"></i>
-                        <a href="detalhes.html">Detalhes</a>
-                    </li>
-                    <li>
-                        <i class="ph ph-star"></i>
-                        <a href="favoritos.html">Favoritos</a>
-                    </li>
-                </ul>
-            </nav>
-        </section>
+      <section class="cabeçalho">
+        <nav class="nav-bar">
+          <ul>
+            <li>
+              <i class="ph ph-info"></i>
+              <a href="detalhes.html">Detalhes</a>
+            </li>
+            <li>
+              <i class="ph ph-star"></i>
+              <a href="favoritos.html">Favoritos</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
     </header>
     <div class="container">
-
-    <main>
-        <div>
-            <input type="text" id="busca-cidade" placeholder="Digite o nome da cidade">
-            <button id="botao-busca">Buscar</button>
+      <main>
+        <div class="form-body">
+          <input
+            type="text"
+            id="busca-cidade"
+            placeholder="Digite o nome da cidade"
+          />
+          <button id="botao-busca">Buscar</button>
         </div>
-        <h2 id="cidade">Cidade</h2>
-        <img id="icon" src="" alt="Ícone do tempo" style="display: none;"><p>
-        <section class="conteudo">
-            
+
+        <section>
+          <h2 id="cidade">Cidade</h2>
+          <img id="icon" src="" alt="Ícone do tempo" />
+          <p></p>
+          <div class="conteudo">
             <div id="temperatura">
-                <h2>Temperatura</h2>
+              <h2>Temperatura</h2>
             </div>
             <div id="estado">
-                <h2>Estado</h2>
+              <h2>Estado</h2>
             </div>
-            
+
             <div id="pais">
-                <h2>País</h2>
+              <h2>País</h2>
             </div>
             <div id="data">
-                <h2>Data</h2>
+              <h2>Data</h2>
             </div>
             <div id="condicao">
-                <h2>Condição</h2>
-            </div> 
-            <div id="umidade">
-                <h2>Umidade</h2>
+              <h2>Condição</h2>
             </div>
-        
+            <div id="umidade">
+              <h2>Umidade</h2>
+            </div>
+          </div>
         </section>
-        
-    </main>
+      </main>
     </div>
     <script src="js/script.js"></script>
-</body>
-
+  </body>
 </html>
