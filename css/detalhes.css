@@ -1,9 +1,11 @@
- html {
+ /* html {
      height: 100%;
- }
+ } */
+ 
 .container {
-   max-width: 1200px;
-    margin: 0 auto;
+    max-width: 968px;
+    min-width: 340px;
+    margin: auto;
     padding: 20px; 
     display: flex;
     flex-direction: row;
@@ -11,7 +13,6 @@
     justify-content: center;
     /* padding-left: 500px; */
     /* height: 800px; */
-    margin: auto;
         
 }
 
@@ -21,9 +22,14 @@ header {
     left: 0;
     padding: 10px 0;
     border-radius: 5px;
-   
+    
 }
 
+header {
+
+    display: flex;
+    justify-content: end;
+}
 .dia_e_hora {
 max-width: 60.5rem;
 width: 100%;
@@ -137,11 +143,6 @@ h3 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-header {
-    display: flex;
-    justify-content: end;
 }
 
 .nav-bar ul {
