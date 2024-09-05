@@ -32,7 +32,8 @@ async function fetchWeather(cidade) {
         iconElement.src = data.current.condition.icon;
         iconElement.style.display = 'inline';
         iconElement.alt = data.current.condition.text;
-        iconElement.style.width = '100px';
+        iconElement.style.width = '200px';
+        
 
     } catch (error) {
         console.error('Erro ao buscar o tempo:', error);

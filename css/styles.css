@@ -1,27 +1,89 @@
+html{
+    height: 100%;
+}
+
 
 .container {
-    display: flex;
-    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width:100%;
+}
+
+.cabeçalho {
+    
+}
+
+header {
+    background-color: #326492;
+    color: white;
     width: 100%;
-    height: 801px;
+    padding: 10px 0;
+    margin-left: 0;
+    margin-bottom: 30px;
+}
+.nav-bar{
+    width: 100%;
+    padding-left: 10px;
+}
+.nav-bar ul {
+    list-style-type: none;
    
 }
+.nav-bar li {
+    display: inline;
+    
+}
 
-.nav-bar {
-    font-style: italic;
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+main {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    padding-bottom: 100px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4c90af;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #205375;
+}
+
+h2 {
+    color: #333;
+}
+
+.conteudo div {
+    margin-bottom: 20px;
+}
+.conteudo {
+    background: linear-gradient(to bottom, #7dd3fc, #eaf6fc);
+    box-shadow: 5px 5px 10px rgba(9, 65, 52, 0.5);
+    font-style: oblique;
+    font-size: 15px;
     padding: 30px;
-}
-
-nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style-type: none;
-}
-.icon-clima {
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    font-size: 250px;
+    border-radius: 5px;
 }
  
