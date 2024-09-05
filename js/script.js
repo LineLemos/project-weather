@@ -8,10 +8,21 @@ document.getElementById('botao-busca').addEventListener('click', () => {
     fetchWeather(cidade);
 });
 
+
+const tempos = {
+    'Céu limpo': 'image'
+}
+
+
+
 async function fetchWeather(cidade) {
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${key}&q=${cidade}&lang=pt`);
         const data = await response.json();
+
+        const current = tempos[data.current.condition.text]
+
+        console.log(current)
 
         if (data.error) {
             alert('Cidade não encontrada!');
@@ -33,7 +44,7 @@ async function fetchWeather(cidade) {
         iconElement.style.display = 'inline';
         iconElement.alt = data.current.condition.text;
         iconElement.style.width = '200px';
-        
+
 
     } catch (error) {
         console.error('Erro ao buscar o tempo:', error);

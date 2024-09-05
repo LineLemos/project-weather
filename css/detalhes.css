@@ -1,11 +1,9 @@
- /* html {
+ html {
      height: 100%;
- } */
- 
+ }
 .container {
-    max-width: 968px;
-    min-width: 340px;
-    margin: auto;
+   max-width: 1200px;
+    margin: 0 auto;
     padding: 20px; 
     display: flex;
     flex-direction: row;
@@ -13,6 +11,7 @@
     justify-content: center;
     /* padding-left: 500px; */
     /* height: 800px; */
+    margin: auto;
         
 }
 
@@ -22,7 +21,7 @@ header {
     left: 0;
     padding: 10px 0;
     border-radius: 5px;
-    
+   
 }
 
 header {
@@ -31,112 +30,96 @@ header {
     justify-content: end;
 }
 .dia_e_hora {
-max-width: 60.5rem;
-width: 100%;
-color: black;
-display: flex;
-flex-direction: column;
-background-color: #b3dfe0;
-border-radius: 10px;
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-padding: 30px;
-margin-top: 190px;
-width: 1200px;
-height: 567.5;
-
+  max-width: 60.5rem;
+  width: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  background-color: #b3dfe0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  margin-top: 190px;
+  width: 1200px;
+  height: 567.5;
 }
 
 .back {
-    text-decoration: none;
-    color: #ffffff; 
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-}
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
 
-.back i {
-    margin-right: 5px; 
-    margin-left: 20px;
-
+  gap: 4px;
 }
 
 .dia {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 24px;
-    color: white;
-
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  color: white;
 }
 
-.dia span{
-    font-size: 14px;
+.dia span {
+  font-size: 14px;
 }
 
-.back {
-    height: 30px;
-    width: 30px;
-    
+.forecast-day {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.forecast-day{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-}
-
-.forecast-day p{
-    color: white;
+.forecast-day p {
+  color: white;
 }
 
 .next-forecast h3 {
-   margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .horas {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 12px; 
-    padding-left: 50px;
-    
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-left: 50px;
 }
 
 .grau {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    gap: 8px; 
-    padding: 10px; 
-    border: 1px solid white;
-    border-radius: 12px;
-    margin-bottom: 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 12px;
+  margin-bottom: 20px;
 }
 
-
 .grau img {
-    width: 24px; 
-    height: 24px; 
+  width: 24px;
+  height: 24px;
 }
 
 .hora {
-    display: flex;
-    align-items: center; 
+  display: flex;
+  align-items: center;
 }
 
-
-img{
-    width: 48px;
+img {
+  width: 48px;
 }
 
 h3 {
-    color: white;
+  color: white;
 }
 
-.day1, .day2 {
-    display: flex;
-    flex-direction: column;
-    column-gap: 12px;
-    
+.day1,
+.day2 {
+  display: flex;
+  flex-direction: column;
+  column-gap: 12px;
 }
 
 .container {
@@ -145,54 +128,59 @@ h3 {
     padding: 20px;
 }
 
+header {
+    display: flex;
+    justify-content: end;
+}
+
 .nav-bar ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .nav-bar li {
-    display: inline;
-    margin-right: 20px;
+  display: inline;
+  margin-right: 20px;
 }
 
 .nav-bar a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .nav-bar a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 input[type="text"] {
-    padding: 10px;
-    width: calc(100% - 22px);
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  padding: 10px;
+  width: calc(100% - 22px);
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
 h2 {
-    color: #333;
+  color: #333;
 }
 
 .conteudo div {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 main {
-    padding: 20px;
+  padding: 20px;
 }
