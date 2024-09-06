@@ -76,20 +76,56 @@ button:hover {
   background-color: #205375;
 }
 
+
 h2 {
   color: #333;
 }
 
-.conteudo div {
-  margin-bottom: 20px;
+#TempAuto {
+  width: 100%; /* ou defina uma largura específica como '80%', '600px', etc. */
+  display: flex;
+  justify-content: center; /* Isso garante que o conteúdo dentro da seção também seja centralizado */
+  margin: 0 auto; /* Centraliza a seção horizontalmente */
+  text-align: center; /* Centraliza o texto dentro da seção */
+  flex-direction: column; /* Organiza o conteúdo verticalmente */
 }
-.conteudo {
-  background-color: #f5f5f5;
 
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-  font-size: 15px;
-  padding: 30px;
-  border-radius: 8px;
+/* Ajuste da div conteudo */
+.conteudo {
+  background-color: #f9f9f9;  
+  border-radius: 12px;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+  padding: 20px;  
+  margin: 20px auto;  
+  max-width: 600px;  
+  text-align: center; 
+  transition: transform 0.3s ease-in-out;  
+}
+
+.conteudo:hover {
+  transform: scale(1.05);  
+}
+
+.conteudo h2 {
+  color: #333;  
+  font-size: 24px;  
+  margin-bottom: 10px;
+}
+
+.conteudo div {
+  margin-bottom: 10px;
+}
+
+.conteudo p, .conteudo h2 {
+  font-family: 'Arial', sans-serif; 
+  color: #555; 
+}
+
+#icon {
+  display: block;
+  max-width: 100px;  
+  margin: 0 auto 15px auto;
+  
 }
 
 /*Css para a previsao extendida*/
@@ -100,6 +136,10 @@ h2 {
   border-radius: 10px;
   text-align: center;
   width: 150px;
+}
+
+.forecast-day:hover {
+  transform: scale(1.05);  
 }
 
 .forecast-day img {
