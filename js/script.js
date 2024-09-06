@@ -67,4 +67,20 @@ function displayWeather(data) {
     const iconElement = document.getElementById('icon');
     const iconCode = data.weather[0].icon;
     iconElement.src = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+    // Adiciona a bandeira do país
+    const codigoPais = data.sys.country.toLowerCase(); // Código do país em minúsculas
+    const bandeiraPais = document.getElementById('bandeiraPais');
+    bandeiraPais.innerHTML = `<img src="https://flagcdn.com/w20/${codigoPais}.png" alt="Bandeira do país">`;
+
+    // Obtém a data atual e o dia da semana
+    const atualData = new Date();
+    const opcoesData = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    const opcoeSemana = { weekday: 'long' };
+    const formatacaoData = atualData.toLocaleDateString('pt-BR', opcoesData);
+    const formatacaoSemana = atualData.toLocaleDateString('pt-BR', opcoeSemana);
+    // Atualiza a data e o dia da semana
+    document.getElementById('data').textContent = `${formatacaoSemana.charAt(0).toUpperCase() + formatacaoSemana.slice(1)} - ${formatacaoData}`;
+
+
 }
