@@ -142,3 +142,15 @@ function displayFiveDayForecast(data) {
         forecastContainer.appendChild(forecastElement);
     });
 }
+
+// Função para mostrar ou ocultar os detalhes
+document.getElementById('detalhes-btn').addEventListener('click', () => {
+    const forecastContainer = document.getElementById('previsao-cinco-dias');
+    if (forecastContainer.style.display === 'none') {
+        forecastContainer.style.display = 'flex'; // Exibe os cards
+        document.getElementById('detalhes-btn').textContent = 'Ocultar Detalhes';
+    } else {
+        forecastContainer.style.display = 'none'; // Oculta os cards
+        document.getElementById('detalhes-btn').textContent = 'Ver Detalhes';
+    }
+});
