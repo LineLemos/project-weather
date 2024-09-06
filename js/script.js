@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-//Realiza a busca das informações da cidade através do click do botão 
+//Realiza a busca das informações da cidade através do click do botão de forma assíncrona
+//await faz com que a execução da função assíncrona aguarde a conclusão da chamada antes de continuar.
 document.getElementById('botao-busca').addEventListener('click', async () => {
     const cidade = document.getElementById('busca-cidade').value;
     if (cidade) {
@@ -87,7 +88,7 @@ async function getFiveDayForecast(lat, lon) {
 //Função para carregar os dados no html
 function displayWeather(data) {
     document.getElementById('cidade').textContent = data.name;
-    document.getElementById('pais').textContent = `Pais: ${data.sys.country}`;
+    //document.getElementById('pais').textContent = `Pais: ${data.sys.country}`;
     document.getElementById('temperatura').textContent = `Temperatura: ${data.main.temp}°C`;
     document.getElementById('condicao').textContent = `Condição: ${data.weather[0].description}`;
     document.getElementById('umidade').textContent = `Umidade: ${data.main.humidity}%`;
@@ -119,8 +120,19 @@ function displayFiveDayForecast(data) {
     const forecastContainer = document.getElementById('previsao-cinco-dias');
     forecastContainer.innerHTML = '';
 
-    // Filtrar as previsões para o meio-dia de cada dia
-    const filteredForecast = data.list.filter(item => item.dt_txt.includes('12:00:00'));
+    const hoje = new Date();
+    const diasFuturos = [];
+    for (let i = 1; i <= 5; i++) {
+        const dataFutura = new Date();
+        dataFutura.setDate(hoje.getDate() + i);
+        diasFuturos.push(dataFutura.toISOString().split('T')[0]); // Formata a data como YYYY-MM-DD
+    }
+
+    // Filtrar previsões para os próximos 5 dias
+    const filteredForecast = data.list.filter(item => {
+        const dataItem = item.dt_txt.split(' ')[0]; // Extrai a data no formato YYYY-MM-DD
+        return diasFuturos.includes(dataItem) && item.dt_txt.includes('12:00:00');
+    });
 
     filteredForecast.forEach(forecast => {
         const forecastDate = new Date(forecast.dt_txt);

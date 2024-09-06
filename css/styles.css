@@ -1,18 +1,18 @@
+/* Estilos do container */
 .container {
   flex: 1;
   background-image: linear-gradient(#7dd3fc, #0ea5e9);
-
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Header */
 header {
   background-color: #326492;
   color: white;
   width: 100%;
   padding: 16px 32px;
-
   display: flex;
   align-items: center;
 }
@@ -20,13 +20,11 @@ header {
 .nav-bar {
   width: 100%;
 }
+
 .nav-bar ul {
   display: flex;
   align-items: center;
   gap: 24px;
-}
-.nav-bar li {
-  display: inline;
 }
 
 .nav-bar a {
@@ -38,6 +36,7 @@ header {
   text-decoration: underline;
 }
 
+/* Seção Main */
 main {
   margin-top: 32px;
   max-width: 1120px;
@@ -51,18 +50,17 @@ main {
   align-items: center;
   justify-content: center;
   gap: 8px;
-
   margin-bottom: 16px;
 }
 
 .form-body input[type="text"] {
   flex: 1;
   padding: 10px;
-
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
+/* Botões */
 button {
   padding: 10px 20px;
   background-color: #4c90af;
@@ -76,59 +74,54 @@ button:hover {
   background-color: #205375;
 }
 
-
+/* Estilos para h2 */
 h2 {
   color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
+/* Seção de Temperatura Principal */
 #TempAuto {
-  width: 100%; /* ou defina uma largura específica como '80%', '600px', etc. */
+  width: 100%;
   display: flex;
-  justify-content: center; /* Isso garante que o conteúdo dentro da seção também seja centralizado */
-  margin: 0 auto; /* Centraliza a seção horizontalmente */
-  text-align: center; /* Centraliza o texto dentro da seção */
-  flex-direction: column; /* Organiza o conteúdo verticalmente */
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  flex-direction: column;
 }
 
 /* Ajuste da div conteudo */
 .conteudo {
-  background-color: #f9f9f9;  
-  border-radius: 12px;  
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
-  padding: 20px;  
-  margin: 20px auto;  
-  max-width: 600px;  
-  text-align: center; 
-  transition: transform 0.3s ease-in-out;  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.conteudo > div {
+  flex: 1 1 45%;
+  margin-bottom: 20px;
 }
 
 .conteudo:hover {
-  transform: scale(1.05);  
+  transform: scale(1.05);
 }
 
-.conteudo h2 {
-  color: #333;  
-  font-size: 24px;  
-  margin-bottom: 10px;
-}
-
-.conteudo div {
-  margin-bottom: 10px;
-}
-
-.conteudo p, .conteudo h2 {
-  font-family: 'Arial', sans-serif; 
-  color: #555; 
-}
-
+/* Ícone de clima */
 #icon {
   display: block;
-  max-width: 100px;  
+  max-width: 100px;
   margin: 0 auto 15px auto;
-  
 }
 
-/*Css para a previsao extendida*/
+/* Previsão estendida */
 .forecast-day {
   margin: 10px;
   padding: 15px;
@@ -139,7 +132,7 @@ h2 {
 }
 
 .forecast-day:hover {
-  transform: scale(1.05);  
+  transform: scale(1.05);
 }
 
 .forecast-day img {
