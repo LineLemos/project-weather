@@ -120,6 +120,7 @@ function displayFiveDayForecast(data) {
     const forecastContainer = document.getElementById('previsao-cinco-dias');
     forecastContainer.innerHTML = '';
 
+    //Criado para buscar previsoes futuras
     const hoje = new Date();
     const diasFuturos = [];
     for (let i = 1; i <= 5; i++) {
@@ -155,14 +156,14 @@ function displayFiveDayForecast(data) {
     });
 }
 
-// Função para mostrar ou ocultar os detalhes
+// mostrar ou ocultar os detalhes
 document.getElementById('detalhes-btn').addEventListener('click', () => {
     const forecastContainer = document.getElementById('previsao-cinco-dias');
     if (forecastContainer.style.display === 'none') {
         forecastContainer.style.display = 'flex'; // Exibe os cards
-        document.getElementById('detalhes-btn').textContent = 'Ocultar Detalhes';
+        document.getElementById('detalhes-btn').textContent = 'Ocultar Previsões Futuras';
     } else {
         forecastContainer.style.display = 'none'; // Oculta os cards
-        document.getElementById('detalhes-btn').textContent = 'Ver Detalhes';
+        document.getElementById('detalhes-btn').textContent = 'Ver Previsões Futuras';
     }
 });
