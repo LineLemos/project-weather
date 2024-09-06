@@ -55,11 +55,13 @@ async function getWeatherByCoordinates(lat, lon) {
 
 function displayWeather(data) {
     document.getElementById('cidade').textContent = data.name;
-    document.getElementById('estado').textContent = data.sys.country; // Não há estado na resposta da API
-    document.getElementById('pais').textContent = data.sys.country;
+    document.getElementById('pais').textContent = `Pais: ${data.sys.country}`;
     document.getElementById('temperatura').textContent = `Temperatura: ${data.main.temp}°C`;
     document.getElementById('condicao').textContent = `Condição: ${data.weather[0].description}`;
     document.getElementById('umidade').textContent = `Umidade: ${data.main.humidity}%`;
+    document.getElementById('tempminima').textContent = `Mínima: ${data.main.temp_min}°C`;
+    document.getElementById('tempmaxima').textContent = `Máxima: ${data.main.temp_max}°C`;
+    document.getElementById('velvento').textContent = `Velocidade Vento: ${data.wind.speed} meter/sec`;
 
     // Exibe o ícone do tempo
     const iconElement = document.getElementById('icon');
