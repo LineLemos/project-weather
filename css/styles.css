@@ -10,7 +10,7 @@
 
 /* Header */
 header {
-  background-color: #113455;
+  background-color: #144064;
   color: white;
   width: 100%;
   padding: 16px 32px;
@@ -39,11 +39,19 @@ header {
 
 /* Seção Main */
 main {
-  margin-top: 32px;
   max-width: 1120px;
   width: 100%;
   padding: 20px;
   border-radius: 8px;
+}
+
+.title h1{
+  color:#4c90af;
+  text-align: center;
+  padding-bottom: 40px;
+  font-size: 50px;
+  text-shadow: 1px 1px 1px #0015359a;
+  font-weight: 900;
 }
 
 .form-body {

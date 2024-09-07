@@ -211,13 +211,17 @@ const sunrise = hour.sys.sunrise;
          cidade.style.color = '#000';
         element.style.color = "#000";
         cidade.style.color = '#000';
+
     }else{
 
         cidade.style.color = '#fff';
-        element.style.backgroundImage = "linear-gradient(#3c5c6b,#000)"; 
+        element.style.backgroundImage = "linear-gradient(#113455,#000)"; 
         element.style.color = "#ccc";
         afericoes.style.color= "#000";
-            }    
+        next.style.color = "#ccc";
+        // DIAS DA SEMANA .color = "#ccc";
+
+        }    
     }
 
 
