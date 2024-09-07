@@ -2,16 +2,18 @@
 let favoritos = [];
 
 // Função para adicionar um item aos favoritos
-function adicionarAosFavoritos(item) {
+//function adicionarAosFavoritos(item) {
     // Verifica se o item já está nos favoritos
-    if (!favoritos.some(favorito => favorito.id === item.id)) {
-        favoritos.push(item);
-        console.log('Item adicionado aos favoritos:', item);
-        exibirFavoritos();
-    } else {
-        console.log('Item já está nos favoritos');
-    }
-}
+//    if (!favoritos.some(favorito => favorito.id === item.id)) {
+//        favoritos.push(item);
+//        console.log('Item adicionado aos favoritos:', item);
+//        exibirFavoritos();
+//    } else {
+//        console.log('Item já está nos favoritos');
+//    }
+//}
+
+//Teste de adicão de cidade aos favoritos
 
 // Função para exibir os favoritos
 function exibirFavoritos() {

@@ -94,3 +94,10 @@ main i {
 .cidades-salvas {
   display: flex;
 }
+.content-container {
+  background-color: #113455;
+  width: 1200px;
+  height: 567.5px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(9, 65, 52, 0.5);
+}

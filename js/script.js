@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('botao-busca').addEventListener('click', async () => {
     const cidade = document.getElementById('busca-cidade').value;
     if (cidade) {
+
         await getWeatherByCity(cidade);
         await getFiveDayForecastByCity(cidade);
     }
@@ -30,8 +31,8 @@ document.getElementById('botao-busca').addEventListener('click', async () => {
 //Funcao para retornar os dados da cidade baseado no nome
 async function getWeatherByCity(cidade) {
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`);
-        const data = await response.json();
+        const resposta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`);
+        const data = await resposta.json();
 
         if (data.cod === '404') {
             alert('Cidade não encontrada.');
@@ -47,8 +48,8 @@ async function getWeatherByCity(cidade) {
 //Funcao para retornar os dados da cidade baseado nas coordenadas
 async function getWeatherByCoordinates(lat, lon) {
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt_br`);
-        const data = await response.json();
+        const resposta = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt_br`);
+        const data = await resposta.json();
 
         if (data.cod === '404') {
             alert('Localização não encontrada.');
@@ -57,15 +58,17 @@ async function getWeatherByCoordinates(lat, lon) {
 
         displayWeather(data);
     } catch (error) {
+        console.log(error)
         alert('Erro ao buscar dados. Tente novamente.');
+
     }
 }
 
 //Funcao para retornar a previsão de 5 dias baseado no nome
 async function getFiveDayForecastByCity(cidade) {
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`);
-        const data = await response.json();
+        const resposta = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`);
+        const data = await resposta.json();
 
         displayFiveDayForecast(data);
     } catch (error) {
@@ -76,8 +79,8 @@ async function getFiveDayForecastByCity(cidade) {
 //Funcao para retornar a previsão de 5 dias baseado nas coordenadas
 async function getFiveDayForecast(lat, lon) {
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt_br`);
-        const data = await response.json();
+        const resposta = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt_br`);
+        const data = await resposta.json();
 
         displayFiveDayForecast(data);
     } catch (error) {
@@ -87,6 +90,7 @@ async function getFiveDayForecast(lat, lon) {
 
 //Função para carregar os dados no html
 function displayWeather(data) {
+    changeColorBasedOnApiResponse(data)
     document.getElementById('cidade').textContent = data.name;
     //document.getElementById('pais').textContent = `Pais: ${data.sys.country}`;
     document.getElementById('temperatura').textContent = `Temperatura: ${data.main.temp}°C`;
@@ -97,9 +101,9 @@ function displayWeather(data) {
     document.getElementById('velvento').textContent = `Velocidade Vento: ${data.wind.speed} meter/sec`;
 
     // Exibe o ícone do tempo
-    const iconElement = document.getElementById('icon');
-    const iconCode = data.weather[0].icon;
-    iconElement.src = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    const iconeTempo = document.getElementById('icon');
+    const iconeCodigo = data.weather[0].icon;
+    iconeTempo.src = `http://openweathermap.org/img/wn/${iconeCodigo}@2x.png`;
 
     // Adiciona a bandeira do país
     const codigoPais = data.sys.country.toLowerCase();
@@ -117,8 +121,8 @@ function displayWeather(data) {
 
 //Função para carregar os dados no html das previsoes de 5 dias
 function displayFiveDayForecast(data) {
-    const forecastContainer = document.getElementById('previsao-cinco-dias');
-    forecastContainer.innerHTML = '';
+    const containerPrevisao = document.getElementById('previsao-cinco-dias');
+    containerPrevisao.innerHTML = '';
 
     //Criado para buscar previsoes futuras
     const hoje = new Date();
@@ -152,18 +156,69 @@ function displayFiveDayForecast(data) {
                 <p>${temp}°C - ${description}</p>
             </div>
         `;
-        forecastContainer.appendChild(forecastElement);
+        containerPrevisao.appendChild(forecastElement);
     });
 }
 
+//function addCidadeFavoritos(data) {
+//    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+//    if (!favoritos.find(fav => fav.id === data.id)) {
+//        favoritos.push(data);
+//        localStorage.setItem('favoritos', JSON.stringfy(favoritos));
+//        alert('Cidade não localizada');
+//        else {
+//        alert('Cidade ja adicionada');
+//    }
+//}
+
+
 // mostrar ou ocultar os detalhes
 document.getElementById('detalhes-btn').addEventListener('click', () => {
-    const forecastContainer = document.getElementById('previsao-cinco-dias');
-    if (forecastContainer.style.display === 'none') {
-        forecastContainer.style.display = 'flex'; // Exibe os cards
+    const containerPrevisao = document.getElementById('previsao-cinco-dias');
+    if (containerPrevisao.style.display === 'none') {
+        containerPrevisao.style.display = 'flex'; // Exibe os cards
         document.getElementById('detalhes-btn').textContent = 'Ocultar Previsões Futuras';
     } else {
-        forecastContainer.style.display = 'none'; // Oculta os cards
+        containerPrevisao.style.display = 'none'; // Oculta os cards
         document.getElementById('detalhes-btn').textContent = 'Ver Previsões Futuras';
     }
 });
+//Função para fazer a requisição à API
+// async function requisiçãoHorario(cidade) {
+//     try {
+//         const resposta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}=metric&lang=pt_br`);
+//         const hour = await resposta.json();
+//         return hour;
+//     } catch (error) {
+//         console.error('Erro ao buscar dados da API:', error);
+//     }
+// }
+// requisiçãoHorario().then(resposta => changeColorBasedOnApiResponse(resposta));
+
+// // Função para mudar a cor do elemento com base na resposta da API
+function changeColorBasedOnApiResponse(hour) {
+    const element = document.getElementById('background');
+    const now = new Date();
+    const currentTimeUTC = Math.floor(now.getTime() / 1000); 
+    
+const sunrise = hour.sys.sunrise; 
+    const sunset = hour.sys.sunset;
+    console.log(currentTimeUTC >= sunrise && currentTimeUTC < sunset)
+
+    if (currentTimeUTC >= sunrise && currentTimeUTC < sunset) {
+        
+        element.style.backgroundImage = "linear-gradient(#7dd3fc, #0ea5e9)"; 
+         cidade.style.color = '#000';
+        element.style.color = "#000";
+        cidade.style.color = '#000';
+    }else{
+
+        cidade.style.color = '#fff';
+        element.style.backgroundImage = "linear-gradient(#3c5c6b,#000)"; 
+        element.style.color = "#ccc";
+        afericoes.style.color= "#000";
+            }    
+    }
+
+
+        

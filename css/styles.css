@@ -1,15 +1,16 @@
 /* Estilos do container */
 .container {
   flex: 1;
-  background-image: linear-gradient(#7dd3fc, #0ea5e9);
+  background-image: linear-gradient(#7dd3fc, #3c5c6b);
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: background-image 0.3s ease-in;
 }
 
 /* Header */
 header {
-  background-color: #326492;
+  background-color: #113455;
   color: white;
   width: 100%;
   padding: 16px 32px;
@@ -61,7 +62,20 @@ main {
 }
 
 /* Botões */
-button {
+#detalhes-btn, #favoritos-btn{
+  background-color: #205375;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+#detalhes-btn:hover, #favoritos-btn:hover{
+  background-color: #4c90af;
+}
+
+#botao-busca, #botao-favorito{
   padding: 10px 20px;
   background-color: #4c90af;
   color: white;
@@ -70,7 +84,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+#botao-busca:hover, #botao-favorito:hover{
   background-color: #205375;
 }
 
@@ -105,7 +119,7 @@ h2 {
   transition: transform 0.3s ease-in-out;
 }
 
-.conteudo > div {
+.conteudo>div {
   flex: 1 1 45%;
   margin-bottom: 20px;
 }
@@ -128,7 +142,7 @@ h2 {
   border: 1px solid #ddd;
   border-radius: 10px;
   text-align: center;
-  width: 150px;
+  width: 160px;
 }
 
 .forecast-day:hover {
