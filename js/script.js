@@ -141,31 +141,31 @@ function displayFiveDayForecast(data) {
     }
 
     // Filtrar previsões para os próximos 5 dias
-    const filteredForecast = data.list.filter(item => {
+    const filtroPrevisao = data.list.filter(item => {
         const dataItem = item.dt_txt.split(' ')[0]; // Extrai a data no formato YYYY-MM-DD
         return diasFuturos.includes(dataItem) && item.dt_txt.includes('12:00:00');
     });
 
     // Para cada previsão filtrada, ajusta a data e o horário com o fuso da cidade
-    filteredForecast.forEach(forecast => {
-        const forecastDateUTC = new Date(forecast.dt_txt);
-        const forecastDateLocal = new Date(forecastDateUTC.getTime() + timezoneOffset * 1000);
-        const dayOfWeek = forecastDateLocal.toLocaleDateString('pt-BR', { weekday: 'long' });
+    filtroPrevisao.forEach(forecast => {
+        const previsaoDataUTC = new Date(forecast.dt_txt);
+        const previsaotDataLocal = new Date(previsaoDataUTC.getTime() + timezoneOffset * 1000);
+        const diaSemana = previsaotDataLocal.toLocaleDateString('pt-BR', { weekday: 'long' });
         const temp = forecast.main.temp;
-        const description = forecast.weather[0].description;
-        const icon = forecast.weather[0].icon;
+        const descricao = forecast.weather[0].description;
+        const icone = forecast.weather[0].icon;
 
         // Gerando o card de previsão
-        const forecastElement = document.createElement('div');
-        forecastElement.classList.add('forecast-day');
-        forecastElement.innerHTML = `
+        const elementoPrevisao = document.createElement('div');
+        elementoPrevisao.classList.add('forecast-day');
+        elementoPrevisao.innerHTML = `
             <div class="card">
-                <h4>${dayOfWeek}</h4>
-                <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="${description}">
-                <p>${temp}°C - ${description}</p>
+                <h4>${diaSemana}</h4>
+                <img src="http://openweathermap.org/img/wn/${icone}@2x.png" alt="${descricao}">
+                <p>${temp}°C - ${descricao}</p>
             </div>
         `;
-        containerPrevisao.appendChild(forecastElement);
+        containerPrevisao.appendChild(elementoPrevisao);
     });
 }
 
