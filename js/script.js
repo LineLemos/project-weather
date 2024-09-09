@@ -40,8 +40,10 @@ async function getWeatherByCity(cidade) {
         }
 
         displayWeather(data);
+        return data;
     } catch (error) {
         alert('Erro ao buscar dados. Tente novamente.');
+        return null;
     }
 }
 
@@ -169,18 +171,6 @@ function displayFiveDayForecast(data) {
     });
 }
 
-//function addCidadeFavoritos(data) {
-//    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-//    if (!favoritos.find(fav => fav.id === data.id)) {
-//        favoritos.push(data);
-//        localStorage.setItem('favoritos', JSON.stringfy(favoritos));
-//        alert('Cidade não localizada');
-//        else {
-//        alert('Cidade ja adicionada');
-//    }
-//}
-
-
 // mostrar ou ocultar os detalhes
 document.getElementById('detalhes-btn').addEventListener('click', () => {
     const containerPrevisao = document.getElementById('previsao-cinco-dias');
@@ -210,7 +200,7 @@ function changeColorBasedOnApiResponse(hour) {
     const now = new Date();
     const currentTimeUTC = Math.floor(now.getTime() / 1000); 
     
-const sunrise = hour.sys.sunrise; 
+    const sunrise = hour.sys.sunrise; 
     const sunset = hour.sys.sunset;
     console.log(currentTimeUTC >= sunrise && currentTimeUTC < sunset)
 
@@ -230,8 +220,37 @@ const sunrise = hour.sys.sunrise;
         next.style.color = "#ccc";
         // DIAS DA SEMANA .color = "#ccc";
 
-        }    
+    }    
+}
+
+// adicionar cidade aos favoritos
+function addCidadeFavoritos(data) {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    // Verifica se a cidade já está nos favoritos
+    if (!favoritos.find(fav => fav.id === data.id)) {
+        favoritos.push({
+            id: data.id,
+            nome: data.name,
+            pais: data.sys.country
+        });
+        localStorage.setItem('favoritos', JSON.stringify(favoritos)); 
+        alert(`${data.name} foi adicionada aos favoritos.`);
+    } else {
+        alert('Essa cidade já está nos favoritos.');
     }
+}
+
+//evento para realizar adicao ao click do botao
+document.getElementById('botao-favorito').addEventListener('click', () => {
+    const cidade = document.getElementById('busca-cidade').value;
+    if (cidade) {
+        getWeatherByCity(cidade).then(data => {
+            if (data) {
+                addCidadeFavoritos(data);
+            }
+        });
+    }
+});
 
 
         
