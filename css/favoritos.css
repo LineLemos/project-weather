@@ -72,6 +72,26 @@ main i {
   
 }
 
-.favorito-item:hover{
-  transform: scale(1.05);
+/* .favorito-item i{
+  margin-left: 250px;
+ margin-top: -170px;
+} */
+
+.btn-excluir {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #180101;
+  font-size: 16px;
+  display: flex;
+ 
 }
+
+.btn-excluir i {
+  pointer-events: none;
+ align-items: right;
+}
+
+.btn-excluir:hover{
+  transform: scale(1.50);
+  }

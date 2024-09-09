@@ -224,24 +224,45 @@ function changeColorBasedOnApiResponse(hour) {
     }    
 }
 
+// // Função para adicionar a cidade aos favoritos com previsão do dia
+// function addCidadeFavoritos(data) {
+//     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+//     // Verifica se a cidade já está nos favoritos
+//     if (!favoritos.find(fav => fav.id === data.id)) {
+//         favoritos.push({
+//             id: data.id,
+//             nome: data.name,
+//             pais: data.sys.country,
+//             temperatura: data.main.temp, // Temperatura atual
+//             condicao: data.weather[0].description, // Descrição do tempo
+//             icone: data.weather[0].icon // Ícone do tempo
+//         });
+//         localStorage.setItem('favoritos', JSON.stringify(favoritos));
+//         alert(`${data.name} foi adicionada aos favoritos.`);
+//     } else {
+//         alert('Essa cidade já está nos favoritos.');
+//     }
+// }
 // Função para adicionar a cidade aos favoritos com previsão do dia
 function addCidadeFavoritos(data) {
     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    // Verifica se a cidade já está nos favoritos
-    if (!favoritos.find(fav => fav.id === data.id)) {
-        favoritos.push({
-            id: data.id,
-            nome: data.name,
-            pais: data.sys.country,
-            temperatura: data.main.temp, // Temperatura atual
-            condicao: data.weather[0].description, // Descrição do tempo
-            icone: data.weather[0].icon // Ícone do tempo
-        });
-        localStorage.setItem('favoritos', JSON.stringify(favoritos));
-        alert(`${data.name} foi adicionada aos favoritos.`);
-    } else {
-        alert('Essa cidade já está nos favoritos.');
-    }
+
+    // Remove qualquer entrada com o mesmo ID que possa estar na lista antes de adicionar de novo
+    favoritos = favoritos.filter(fav => fav.id !== data.id);
+
+    // Adiciona a nova cidade aos favoritos
+    favoritos.push({
+        id: data.id,
+        nome: data.name,
+        pais: data.sys.country,
+        temperatura: data.main.temp, // Temperatura atual
+        condicao: data.weather[0].description, // Descrição do tempo
+        icone: data.weather[0].icon // Ícone do tempo
+    });
+
+    // Salva a lista atualizada no localStorage
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+    alert(`${data.name} foi adicionada aos favoritos.`);
 }
 
 
