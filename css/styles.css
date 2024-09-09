@@ -39,6 +39,10 @@ header {
   text-decoration: underline;
 }
 
+.nav-bar button:hover {
+  text-decoration: underline;
+}
+
 /* Seção Main */
 main {
   max-width: 1120px;
