@@ -1,5 +1,3 @@
-
-
 /* Estilos do container */
 .container {
   flex: 1;
@@ -16,13 +14,15 @@ header {
   color: white;
   width: 100%;
   padding: 16px 32px;
-  display: flex;
   align-items: center;
 }
 
 .nav-bar {
   width: 100%;
+  font-size: 10px;
+  
 }
+
 
 .nav-bar ul {
   display: flex;
@@ -31,16 +31,9 @@ header {
 }
 
 .nav-bar a {
-  color: white;
+  
+  color: rgb(255, 255, 255);
   text-decoration: none;
-}
-
-.nav-bar li:hover {
-  text-decoration: underline;
-}
-
-.nav-bar button:hover {
-  text-decoration: underline;
 }
 
 /* Seção Main */
@@ -52,13 +45,9 @@ main {
 
 }
 
-#title h1{
-  color:#677e88;
-  text-align: center;
-  padding-bottom: 40px;
-  font-size: 50px;
-  text-shadow: 1px 1px 1px #00153577;
-  font-weight: 900;
+.title h1{
+  padding: 20px 0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .form-body {
@@ -137,7 +126,8 @@ h2 {
 
 .conteudo>div {
   flex: 1 1 45%;
-  margin-bottom: 20px;
+  justify-content:center;
+  padding: 10px;
 }
 
 .conteudo:hover {

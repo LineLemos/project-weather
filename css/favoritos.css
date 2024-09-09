@@ -30,11 +30,11 @@ header {
   text-align: center;
   color: #ffffff;
   height: 180px;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .page-title p {
-  color: rgb(206, 206, 206);
+  color: rgb(179, 179, 179);
   font-size: 15px;
   padding: 10px;
   text-align: center;
@@ -45,7 +45,6 @@ main i {
   font-size: 20px;
   padding: 10px;
 }
-
 
 #lista-favoritos{
   display: flex;
@@ -61,6 +60,8 @@ main i {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  padding-top: 20px;
+  padding-left: 20px;
   background-color: #c7c7c7ef;
   width: 300px;
   height: 200px;
@@ -69,13 +70,7 @@ main i {
 .favorito-item img {
   max-width: 100px;
   height: auto;
-  
 }
-
-/* .favorito-item i{
-  margin-left: 250px;
- margin-top: -170px;
-} */
 
 .btn-excluir {
   background: none;
@@ -84,14 +79,18 @@ main i {
   color: #180101;
   font-size: 16px;
   display: flex;
- 
+  margin-left: 230px;
+  margin-top: -170px;
+  
 }
 
 .btn-excluir i {
   pointer-events: none;
  align-items: right;
+
 }
 
 .btn-excluir:hover{
   transform: scale(1.50);
-  }
+}
+

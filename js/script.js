@@ -116,7 +116,7 @@ function displayWeather(data) {
     const timezoneOffset = data.timezone;
     const atualDataUTC = new Date();
     const atualDataLocal = new Date(atualDataUTC.getTime() + timezoneOffset * 1000);
-    
+
     const opcoesData = { year: 'numeric', month: 'numeric', day: 'numeric' };
     const opcoeSemana = { weekday: 'long' };
     const formatacaoData = atualDataLocal.toLocaleDateString('pt-BR', opcoesData);
@@ -134,7 +134,7 @@ function displayFiveDayForecast(data) {
     const hojeUTC = new Date();
     const hojeLocal = new Date(hojeUTC.getTime() + timezoneOffset * 1000);
     const diasFuturos = [];
-    
+
     // Ajusta os dias futuros com base no fuso horário local
     for (let i = 1; i <= 5; i++) {
         const dataFuturaLocal = new Date(hojeLocal);
@@ -171,78 +171,51 @@ function displayFiveDayForecast(data) {
     });
 }
 
-// mostrar ou ocultar os detalhes
+
 document.getElementById('detalhes-btn').addEventListener('click', () => {
     const containerPrevisao = document.getElementById('previsao-cinco-dias');
+    const botaoDetalhes = document.getElementById('detalhes-btn');
+
     if (containerPrevisao.style.display === 'none') {
         containerPrevisao.style.display = 'flex'; // Exibe os cards
-        document.getElementById('detalhes-btn').textContent = 'Ocultar Previsões Futuras';
+        botaoDetalhes.innerHTML = '<i class="ph ph-info"></i> Ocultar Previsões Futuras ';
     } else {
         containerPrevisao.style.display = 'none'; // Oculta os cards
-        document.getElementById('detalhes-btn').textContent = 'Ver Previsões Futuras';
+        botaoDetalhes.innerHTML = '<i class="ph ph-info"></i> Ver Previsões Futuras ';
     }
 });
-//Função para fazer a requisição à API
-// async function requisiçãoHorario(cidade) {
-//     try {
-//         const resposta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}=metric&lang=pt_br`);
-//         const hour = await resposta.json();
-//         return hour;
-//     } catch (error) {
-//         console.error('Erro ao buscar dados da API:', error);
-//     }
-// }
-// requisiçãoHorario().then(resposta => changeColorBasedOnApiResponse(resposta));
 
 // // Função para mudar a cor do elemento com base na resposta da API
 function changeColorBasedOnApiResponse(hour) {
     const element = document.getElementById('background');
     const now = new Date();
-    const currentTimeUTC = Math.floor(now.getTime() / 1000); 
-    
-    const sunrise = hour.sys.sunrise; 
+    const currentTimeUTC = Math.floor(now.getTime() / 1000);
+
+    const sunrise = hour.sys.sunrise;
     const sunset = hour.sys.sunset;
     console.log(currentTimeUTC >= sunrise && currentTimeUTC < sunset)
 
     if (currentTimeUTC >= sunrise && currentTimeUTC < sunset) {
-        
-        element.style.backgroundImage = "linear-gradient(#7dd3fc, #0ea5e9)"; 
-         cidade.style.color = '#000';
+
+        element.style.backgroundImage = "linear-gradient(#7dd3fc, #0ea5e9)";
+        cidade.style.color = '#000';
         element.style.color = "#000";
         cidade.style.color = '#000';
         title.style.color = "#113455";
 
-    }else{
+    } else {
 
         cidade.style.color = '#fff';
-        element.style.backgroundImage = "linear-gradient(#113455,#000)"; 
+        element.style.backgroundImage = "linear-gradient(#113455,#000)";
         element.style.color = "#ccc";
-        afericoes.style.color= "#000";
+        afericoes.style.color = "#000";
         next.style.color = "#ccc";
-        // DIAS DA SEMANA .color = "#ccc";
+        title.style.color = "#ccc";
 
-    }    
+    }
 }
 
-// // Função para adicionar a cidade aos favoritos com previsão do dia
-// function addCidadeFavoritos(data) {
-//     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-//     // Verifica se a cidade já está nos favoritos
-//     if (!favoritos.find(fav => fav.id === data.id)) {
-//         favoritos.push({
-//             id: data.id,
-//             nome: data.name,
-//             pais: data.sys.country,
-//             temperatura: data.main.temp, // Temperatura atual
-//             condicao: data.weather[0].description, // Descrição do tempo
-//             icone: data.weather[0].icon // Ícone do tempo
-//         });
-//         localStorage.setItem('favoritos', JSON.stringify(favoritos));
-//         alert(`${data.name} foi adicionada aos favoritos.`);
-//     } else {
-//         alert('Essa cidade já está nos favoritos.');
-//     }
-// }
+
 // Função para adicionar a cidade aos favoritos com previsão do dia
 function addCidadeFavoritos(data) {
     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
@@ -255,9 +228,9 @@ function addCidadeFavoritos(data) {
         id: data.id,
         nome: data.name,
         pais: data.sys.country,
-        temperatura: data.main.temp, // Temperatura atual
-        condicao: data.weather[0].description, // Descrição do tempo
-        icone: data.weather[0].icon // Ícone do tempo
+        temperatura: data.main.temp,
+        condicao: data.weather[0].description,
+        icone: data.weather[0].icon
     });
 
     // Salva a lista atualizada no localStorage
@@ -277,35 +250,5 @@ document.getElementById('botao-favorito').addEventListener('click', () => {
     }
 });
 
-/// Função para exibir os favoritos com previsão do dia
-function exibirFavoritos() {
-    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    const container = document.getElementById('lista-favoritos');
-
-    // Clear the container before appending new elements
-    container.innerHTML = '';
-
-    if (favoritos.length === 0) {
-        container.innerHTML = '<p>Nenhuma cidade adicionada aos favoritos.</p>';
-        return;
-    }
-
-    favoritos.forEach(fav => {
-        const elementoFavorito = document.createElement('div');
-        elementoFavorito.classList.add('favorito-item');
-        elementoFavorito.innerHTML = `
-            <h3>${fav.nome}, ${fav.pais}</h3>
-            <p>Temperatura: ${fav.temperatura}°C</p>
-            <p>Condição: ${fav.condicao}</p>
-            <img src="http://openweathermap.org/img/wn/${fav.icone}@2x.png" alt="${fav.condicao}">
-        `;
-        container.appendChild(elementoFavorito);
-    });
-}
-
-// Chama a função ao carregar a página
-document.addEventListener('DOMContentLoaded', exibirFavoritos);
 
 
-
-        
