@@ -111,11 +111,14 @@ function displayWeather(data) {
     bandeiraPais.innerHTML = `<img src="https://flagcdn.com/w20/${codigoPais}.png" alt="Bandeira do país">`;
 
     // Atualiza a data e o dia da semana
-    const atualData = new Date();
+    const timezoneOffset = data.timezone;
+    const atualDataUTC = new Date();
+    const atualDataLocal = new Date(atualDataUTC.getTime() + timezoneOffset * 1000);
+    
     const opcoesData = { year: 'numeric', month: 'numeric', day: 'numeric' };
     const opcoeSemana = { weekday: 'long' };
-    const formatacaoData = atualData.toLocaleDateString('pt-BR', opcoesData);
-    const formatacaoSemana = atualData.toLocaleDateString('pt-BR', opcoeSemana);
+    const formatacaoData = atualDataLocal.toLocaleDateString('pt-BR', opcoesData);
+    const formatacaoSemana = atualDataLocal.toLocaleDateString('pt-BR', opcoeSemana);
     document.getElementById('data').textContent = `${formatacaoSemana.charAt(0).toUpperCase() + formatacaoSemana.slice(1)} - ${formatacaoData}`;
 }
 
@@ -124,13 +127,17 @@ function displayFiveDayForecast(data) {
     const containerPrevisao = document.getElementById('previsao-cinco-dias');
     containerPrevisao.innerHTML = '';
 
-    //Criado para buscar previsoes futuras
-    const hoje = new Date();
+    // Criado para buscar previsões futuras
+    const timezoneOffset = data.city.timezone;
+    const hojeUTC = new Date();
+    const hojeLocal = new Date(hojeUTC.getTime() + timezoneOffset * 1000);
     const diasFuturos = [];
+    
+    // Ajusta os dias futuros com base no fuso horário local
     for (let i = 1; i <= 5; i++) {
-        const dataFutura = new Date();
-        dataFutura.setDate(hoje.getDate() + i);
-        diasFuturos.push(dataFutura.toISOString().split('T')[0]); // Formata a data como YYYY-MM-DD
+        const dataFuturaLocal = new Date(hojeLocal);
+        dataFuturaLocal.setDate(hojeLocal.getDate() + i);
+        diasFuturos.push(dataFuturaLocal.toISOString().split('T')[0]); // Formata a data como YYYY-MM-DD
     }
 
     // Filtrar previsões para os próximos 5 dias
@@ -139,9 +146,11 @@ function displayFiveDayForecast(data) {
         return diasFuturos.includes(dataItem) && item.dt_txt.includes('12:00:00');
     });
 
+    // Para cada previsão filtrada, ajusta a data e o horário com o fuso da cidade
     filteredForecast.forEach(forecast => {
-        const forecastDate = new Date(forecast.dt_txt);
-        const dayOfWeek = forecastDate.toLocaleDateString('pt-BR', { weekday: 'long' });
+        const forecastDateUTC = new Date(forecast.dt_txt);
+        const forecastDateLocal = new Date(forecastDateUTC.getTime() + timezoneOffset * 1000);
+        const dayOfWeek = forecastDateLocal.toLocaleDateString('pt-BR', { weekday: 'long' });
         const temp = forecast.main.temp;
         const description = forecast.weather[0].description;
         const icon = forecast.weather[0].icon;
