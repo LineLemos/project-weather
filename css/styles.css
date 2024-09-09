@@ -1,3 +1,5 @@
+
+
 /* Estilos do container */
 .container {
   flex: 1;
@@ -43,6 +45,7 @@ main {
   width: 100%;
   padding: 20px;
   border-radius: 8px;
+
 }
 
 .title h1{
