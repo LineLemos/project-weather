@@ -210,6 +210,7 @@ function changeColorBasedOnApiResponse(hour) {
          cidade.style.color = '#000';
         element.style.color = "#000";
         cidade.style.color = '#000';
+        title.style.color = "#113455";
 
     }else{
 
@@ -223,7 +224,7 @@ function changeColorBasedOnApiResponse(hour) {
     }    
 }
 
-// adicionar cidade aos favoritos
+// Função para adicionar a cidade aos favoritos com previsão do dia
 function addCidadeFavoritos(data) {
     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
     // Verifica se a cidade já está nos favoritos
@@ -231,16 +232,19 @@ function addCidadeFavoritos(data) {
         favoritos.push({
             id: data.id,
             nome: data.name,
-            pais: data.sys.country
+            pais: data.sys.country,
+            temperatura: data.main.temp, // Temperatura atual
+            condicao: data.weather[0].description, // Descrição do tempo
+            icone: data.weather[0].icon // Ícone do tempo
         });
-        localStorage.setItem('favoritos', JSON.stringify(favoritos)); 
+        localStorage.setItem('favoritos', JSON.stringify(favoritos));
         alert(`${data.name} foi adicionada aos favoritos.`);
     } else {
         alert('Essa cidade já está nos favoritos.');
     }
 }
 
-//evento para realizar adicao ao click do botao
+
 document.getElementById('botao-favorito').addEventListener('click', () => {
     const cidade = document.getElementById('busca-cidade').value;
     if (cidade) {
@@ -251,6 +255,36 @@ document.getElementById('botao-favorito').addEventListener('click', () => {
         });
     }
 });
+
+/// Função para exibir os favoritos com previsão do dia
+function exibirFavoritos() {
+    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const container = document.getElementById('lista-favoritos');
+
+    // Clear the container before appending new elements
+    container.innerHTML = '';
+
+    if (favoritos.length === 0) {
+        container.innerHTML = '<p>Nenhuma cidade adicionada aos favoritos.</p>';
+        return;
+    }
+
+    favoritos.forEach(fav => {
+        const elementoFavorito = document.createElement('div');
+        elementoFavorito.classList.add('favorito-item');
+        elementoFavorito.innerHTML = `
+            <h3>${fav.nome}, ${fav.pais}</h3>
+            <p>Temperatura: ${fav.temperatura}°C</p>
+            <p>Condição: ${fav.condicao}</p>
+            <img src="http://openweathermap.org/img/wn/${fav.icone}@2x.png" alt="${fav.condicao}">
+        `;
+        container.appendChild(elementoFavorito);
+    });
+}
+
+// Chama a função ao carregar a página
+document.addEventListener('DOMContentLoaded', exibirFavoritos);
+
 
 
         

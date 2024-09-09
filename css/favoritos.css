@@ -1,6 +1,6 @@
 .container {
   flex: 1;
-  background-image: linear-gradient(#7dd3fc, #0ea5e9);
+  background-image: linear-gradient(#10013b,#000);
 
   display: flex;
   flex-direction: column;
@@ -19,23 +19,15 @@ header {
   display: flex;
 }
 
-.content-container {
-  background-color: #326492;
-  width: 1200px;
-  height: 567.5px;
-  border-radius: 8px;
-  box-shadow: 5px 5px 10px rgba(9, 65, 52, 0.5);
-}
 
 .page-title {
-  height: 200px;
+  height: 120px;
   margin: 0 auto;
 }
 
 .page-title h1 {
-  padding: 10px;
+  
   text-align: center;
-  height: 100px;
   color: #ffffff;
 
   height: 180px;
@@ -43,61 +35,45 @@ header {
 
 .page-title p {
   color: rgb(206, 206, 206);
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px;
   text-align: center;
-  margin-top: -150px;
+  margin-top: -120px;
 }
 
 main i {
-  font-size: 24px;
+  font-size: 20px;
   padding: 10px;
 }
 
-.input {
+
+
+#lista-favoritos{
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 50px;
+  padding-top: 100px;
+}
+
+
+.favorito-item {
+  margin-bottom: 10px;
   padding: 10px;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  width: 100%;
-  max-width: 800px;
-  display: flex;
-  flex: 1;
-  gap: 16px;
-  margin: 0 auto;
-  /* margin-top: -70px; */
+  background-color: #c7c7c7ef;
+  width: 300px;
+  height: 200px;
+
 }
 
-.input input[type="text"] {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+.favorito-item img {
+  max-width: 100px;
+  height: auto;
+  
 }
 
-.input button {
-  padding: 8px 12px;
-  background-color: #4c90af;
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.input button:hover {
-  background-color: #0056b3;
-}
-
-.cidades-salvas {
-  display: flex;
-}
-.content-container {
-  background-color: #113455;
-  width: 1200px;
-  height: 567.5px;
-  border-radius: 8px;
-  box-shadow: 5px 5px 10px rgba(9, 65, 52, 0.5);
+.favorito-item:hover{
+  transform: scale(1.05);
 }
